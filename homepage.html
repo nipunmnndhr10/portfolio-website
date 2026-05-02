@@ -3,13 +3,14 @@
 
 <head>
    <meta charset="UTF-8" />
-   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
    <title>Nipun – Portfolio</title>
 
    <!-- imports Boxicons as an icon library -->
    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap" rel="stylesheet">
    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
    <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
    <link rel="stylesheet" href="styles.css">
 
@@ -77,12 +78,12 @@
 
       <div class="hero-content">
          <!-- Shiny Glossy Name -->
-         <h1 class="hero-name">Nipun</h1>
-         <h1 class="hero-name">Manandhar</h1>
+         <h1 class="hero-name reveal">Nipun</h1>
+         <h1 class="hero-name reveal reveal-d1">Manandhar</h1>
 
 
          <!-- Typing Effect Fields -->
-         <div class="hero-fields">
+         <div class="hero-fields reveal reveal-d2">
             <span class="typing-text" id="typing"></span>
          </div>
       </div>
@@ -104,7 +105,7 @@
 
       <div class="about-container">
          <!-- Left: Bio content -->
-         <div class="about-content">
+         <div class="about-content reveal">
             <h5 class="about-title">About</h5>
 
             <div class="about-card">
@@ -120,7 +121,7 @@
          </div>
 
          <!-- Right: Large profile photo -->
-         <div class="about-image">
+         <div class="about-image reveal reveal-d2">
             <img src="assets/img/about-prof.jpg" alt="Nipun" class="profile-photo">
          </div>
       </div>
@@ -133,41 +134,41 @@
       <div class="skills-overlay"></div>
 
       <div class="skills-container">
-         <h2 class="skills-main-title">Skills</h2>
+         <h2 class="skills-main-title reveal">Skills</h2>
 
          <div class="skill-cards-grid">
 
-            <div class="skill-card">
+            <div class="skill-card reveal reveal-d1">
                <i class='bx bx-code-alt skill-icon'></i>
                <h3 class="skill-domain">Software Development</h3>
                <p class="skill-desc">
-                  I build modern and efficient applications using Flutter, Java, and JavaScript.
-                  My technology choices evolve with each project — I enjoy exploring new tools
-                  and turning ideas into clean, functional code that solves real problems.
+                  I build functional, cross-platform solutions ranging from mobile applications to web and hardware
+                  integrations. My experience includes developing apps with Flutter, Web Development using
+                  JavaScript, and building IoT prototypes like smart systems with Arduino.
                </p>
             </div>
 
-            <div class="skill-card">
+            <div class="skill-card reveal reveal-d2">
                <i class='bx bx-brain skill-icon'></i>
                <h3 class="skill-domain">AI &amp; Machine Learning</h3>
                <p class="skill-desc">
-                  AI is my biggest passion and the specialization of my Bachelor’s degree.
-                  I’m deeply interested in solving real-world problems through intelligent systems,
-                  with strong experience in Computer Vision, NLP, and integrating AI models into applications.
+                  As part of my academic specialization, I focus on building intelligent systems for real-world
+                  applications. I have hands-on experience in Computer Vision and NLP using Python and ML frameworks
+                  like TensorFlow, with a focus on integrating AI models into practical applications.
                </p>
             </div>
 
-            <div class="skill-card">
+            <div class="skill-card reveal reveal-d3">
                <i class='bx bx-palette skill-icon'></i>
                <h3 class="skill-domain">Creative Production</h3>
                <p class="skill-desc">
-                  Beyond coding, I have a strong passion for visual storytelling.
-                  With professional experience in photo and video editing at Creatoons Production,
-                  I bring creativity and technical skills together to create engaging digital experiences.
+                  Beyond coding, I have a strong passion for visual storytelling. I have experience in video and
+                  photography production, combining creative direction with technical skills to create engaging digital
+                  content and experiences.
                </p>
             </div>
 
-            <div class="skill-card">
+            <div class="skill-card reveal reveal-d4">
                <i class='bx bx-group skill-icon'></i>
                <h3 class="skill-domain">Teamwork &amp; Leadership</h3>
                <p class="skill-desc">
@@ -187,12 +188,12 @@
       <div class="projects-overlay"></div>
 
       <div class="projects-container">
-         <h2 class="projects-title">Featured Projects</h2>
+         <h2 class="projects-title reveal">Featured Projects</h2>
 
          <div class="projects-grid">
 
             <!-- Project 1: Hear2See -->
-            <a href="https://github.com/nipunmnndhr10/Hear2See" class="project-link" target="_blank"
+            <a href="https://github.com/nipunmnndhr10/Hear2See" class="project-link reveal reveal-d1" target="_blank"
                rel="noopener noreferrer">
 
                <div class="project-card">
@@ -216,7 +217,7 @@
             </a>
 
             <!-- Project 2: TagVision -->
-            <a href="https://github.com/nipunmnndhr10/TagVision" class="project-link" target="_blank"
+            <a href="https://github.com/nipunmnndhr10/TagVision" class="project-link reveal reveal-d2" target="_blank"
                rel="noopener noreferrer">
 
                <div class="project-card">
@@ -238,8 +239,8 @@
             </a>
 
             <!-- Project 3: Face Recognition System -->
-            <a href="https://github.com/nipunmnndhr10/FaceRecog_dlib" class="project-link" target="_blank"
-               rel="noopener noreferrer">
+            <a href="https://github.com/nipunmnndhr10/FaceRecog_dlib" class="project-link reveal reveal-d3"
+               target="_blank" rel="noopener noreferrer">
 
                <div class="project-card">
                   <div class="face-recog-thumbnail">
@@ -268,47 +269,67 @@
    <section class="photography" id="photography">
       <div class="photo-scroll-stage">
          <div class="photography-container">
-            <h2 class="photography-title">Creative Works</h2>
-            <p class="photography-subtitle">Capturing since Day One</p>
+            <h2 class="photography-title reveal">Creative Works</h2>
+            <p class="photography-subtitle reveal reveal-d1">Capturing since Day One</p>
 
-            <div class="photo-gallery-shell">
+            <div class="photo-gallery-shell reveal reveal-d2">
                <div class="photo-gallery" id="photoGalleryTrack">
-                  <figure class="photo-panel"><img src="assets/img/photographs/photo-1.webp" alt="Photography 1"
-                        class="photo">
-                  </figure>
-                  <figure class="photo-panel"><img src="assets/img/photographs/photo-2.webp" alt="Photography 2"
-                        class="photo">
-                  </figure>
-                  <figure class="photo-panel"><img src="assets/img/photographs/photo-3.webp" alt="Photography 3"
-                        class="photo">
-                  </figure>
-                  <figure class="photo-panel"><img src="assets/img/photographs/photo-4.webp" alt="Photography 4"
-                        class="photo">
-                  </figure>
-                  <figure class="photo-panel"><img src="assets/img/photographs/photo-5.webp" alt="Photography 5"
-                        class="photo">
-                  </figure>
-                  <figure class="photo-panel"><img src="assets/img/photographs/photo-6.webp" alt="Photography 6"
-                        class="photo">
-                  </figure>
-                  <figure class="photo-panel"><img src="assets/img/photographs/photo-7.webp" alt="Photography 7"
-                        class="photo">
-                  </figure>
-                  <figure class="photo-panel"><img src="assets/img/photographs/photo-8.webp" alt="Photography 8"
-                        class="photo">
-                  </figure>
-                  <figure class="photo-panel"><img src="assets/img/photographs/photo-9.webp" alt="Photography 9"
-                        class="photo">
-                  </figure>
-                  <figure class="photo-panel"><img src="assets/img/photographs/photo-10.webp" alt="Photography 10"
-                        class="photo">
-                  </figure>
+                  <a href="https://www.instagram.com/nipunmn" target="_blank" rel="noopener noreferrer"
+                     class="photo-panel">
+                     <img src="assets/img/photographs/photo-1.webp" alt="Photography 1" class="photo">
+                     <div class="photo-overlay"><i class='bx bxl-instagram'></i><span>nipunmn</span></div>
+                  </a>
+                  <a href="https://www.instagram.com/nipunmn" target="_blank" rel="noopener noreferrer"
+                     class="photo-panel">
+                     <img src="assets/img/photographs/photo-2.webp" alt="Photography 2" class="photo">
+                     <div class="photo-overlay"><i class='bx bxl-instagram'></i><span>nipunmn</span></div>
+                  </a>
+                  <a href="https://www.instagram.com/nipunmn" target="_blank" rel="noopener noreferrer"
+                     class="photo-panel">
+                     <img src="assets/img/photographs/photo-3.webp" alt="Photography 3" class="photo">
+                     <div class="photo-overlay"><i class='bx bxl-instagram'></i><span>nipunmn</span></div>
+                  </a>
+                  <a href="https://www.instagram.com/nipunmn" target="_blank" rel="noopener noreferrer"
+                     class="photo-panel">
+                     <img src="assets/img/photographs/photo-4.webp" alt="Photography 4" class="photo">
+                     <div class="photo-overlay"><i class='bx bxl-instagram'></i><span>nipunmn</span></div>
+                  </a>
+                  <a href="https://www.instagram.com/nipunmn" target="_blank" rel="noopener noreferrer"
+                     class="photo-panel">
+                     <img src="assets/img/photographs/photo-5.webp" alt="Photography 5" class="photo">
+                     <div class="photo-overlay"><i class='bx bxl-instagram'></i><span>nipunmn</span></div>
+                  </a>
+                  <a href="https://www.instagram.com/nipunmn" target="_blank" rel="noopener noreferrer"
+                     class="photo-panel">
+                     <img src="assets/img/photographs/photo-6.webp" alt="Photography 6" class="photo">
+                     <div class="photo-overlay"><i class='bx bxl-instagram'></i><span>nipunmn</span></div>
+                  </a>
+                  <a href="https://www.instagram.com/nipunmn" target="_blank" rel="noopener noreferrer"
+                     class="photo-panel">
+                     <img src="assets/img/photographs/photo-7.webp" alt="Photography 7" class="photo">
+                     <div class="photo-overlay"><i class='bx bxl-instagram'></i><span>nipunmn</span></div>
+                  </a>
+                  <a href="https://www.instagram.com/nipunmn" target="_blank" rel="noopener noreferrer"
+                     class="photo-panel">
+                     <img src="assets/img/photographs/photo-8.webp" alt="Photography 8" class="photo">
+                     <div class="photo-overlay"><i class='bx bxl-instagram'></i><span>nipunmn</span></div>
+                  </a>
+                  <a href="https://www.instagram.com/nipunmn" target="_blank" rel="noopener noreferrer"
+                     class="photo-panel">
+                     <img src="assets/img/photographs/photo-9.webp" alt="Photography 9" class="photo">
+                     <div class="photo-overlay"><i class='bx bxl-instagram'></i><span>nipunmn</span></div>
+                  </a>
+                  <a href="https://www.instagram.com/nipunmn" target="_blank" rel="noopener noreferrer"
+                     class="photo-panel">
+                     <img src="assets/img/photographs/photo-10.webp" alt="Photography 10" class="photo">
+                     <div class="photo-overlay"><i class='bx bxl-instagram'></i><span>nipunmn</span></div>
+                  </a>
                </div>
             </div>
          </div>
 
       </div>
-      <div class="photography-video-shell">
+      <div class="photography-video-shell reveal reveal-d3">
          <a class="photography-video-link"
             href="https://www.youtube.com/watch?v=9oNBSmktiyc&list=RD9oNBSmktiyc&start_radio=1" target="_blank"
             rel="noreferrer">
@@ -326,36 +347,72 @@
    <!-- CONTACT SECTION -->
    <section class="contact" id="contact">
       <div class="contact-container">
-
-         <div class="contact-left">
+         <div class="contact-left reveal">
             <h2 class="contact-title">Get In Touch</h2>
             <p class="contact-subtitle">
-               Have a project in mind? Want to collaborate? Or just want to say hello?<br>
-               I'd love to hear from you.
+               Have a project in mind? Want to collaborate? Or just want to say hello? I'd love to hear from you.
             </p>
+
+            <div class="contact-info">
+               <div class="info-item">
+                  <i class='bx bx-envelope'></i>
+                  <div class="info-text">
+                     <span>Email</span>
+                     <a href="mailto:nipun.manandhar@gmail.com">nipun.manandhar@gmail.com</a>
+                  </div>
+               </div>
+            </div>
+
+            <div class="contact-socials">
+               <p>Connect with me</p>
+               <div class="social-links">
+                  <a href="https://www.linkedin.com/in/nipun-manandhar-06a4a7226/" target="_blank"
+                     aria-label="LinkedIn">
+                     <i class='bx bxl-linkedin'></i>
+                  </a>
+                  <a href="https://www.instagram.com/nipunmn" target="_blank" aria-label="Instagram">
+                     <i class='bx bxl-instagram'></i>
+                  </a>
+                  <a href="https://github.com/nipunmnndhr10" target="_blank" aria-label="GitHub">
+                     <i class='bx bxl-github'></i>
+                  </a>
+               </div>
+            </div>
          </div>
 
-         <div class="contact-right">
-            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="contact-form">
-
+         <div class="contact-right reveal reveal-d2">
+            <form action="https://formspree.io/f/mqenavre" method="POST" class="contact-form">
                <div class="form-group">
-                  <input type="text" name="name" placeholder="Your Name" required>
+                  <input type="text" name="name" id="name" placeholder=" " required>
+                  <label for="name">Your Name</label>
+                  <div class="input-line"></div>
                </div>
 
                <div class="form-group">
-                  <input type="email" name="email" placeholder="Your Email" required>
+                  <input type="email" name="email" id="email" placeholder=" " required>
+                  <label for="email">Your Email</label>
+                  <div class="input-line"></div>
                </div>
 
                <div class="form-group">
-                  <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+                  <textarea name="message" id="message" rows="5" placeholder=" " required></textarea>
+                  <label for="message">Your Message</label>
+                  <div class="input-line"></div>
                </div>
 
-               <button type="submit" class="submit-btn">Send Message</button>
+               <button type="submit" class="submit-btn">
+                  <span>Send Message</span>
+                  <i class='bx bx-send'></i>
+               </button>
             </form>
          </div>
-
+      </div>
+      <div class="footer">
+         <p>&copy; 2026 Nipun Manandhar. All Rights Reserved.</p>
+         <p>Crafted with passion in Kathmandu, Nepal</p>
       </div>
    </section>
+
 
    <script src="scripts.js" defer></script>
 

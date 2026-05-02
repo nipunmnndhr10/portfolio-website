@@ -133,3 +133,26 @@ function type() {
 window.onload = () => {
   setTimeout(type, 800);
 };
+
+// ── Scroll Reveal Animation ─────────────────────────────────────
+const revealElements = document.querySelectorAll('.reveal');
+
+const revealOptions = {
+  threshold: 0.1, // Trigger when 10% of the element is visible
+  rootMargin: "0px 0px -30px 0px" // Trigger slightly before the bottom of the viewport
+};
+
+const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) {
+      return;
+    } else {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target); // Stop observing once revealed
+    }
+  });
+}, revealOptions);
+
+revealElements.forEach(el => {
+  revealOnScroll.observe(el);
+});
