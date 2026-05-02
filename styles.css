@@ -90,26 +90,107 @@ body {
 	transform: translateX(-50%) translateY(0);
 }
 
-/* ── HERO (your existing styles kept, only minor adjustments) ── */
+/* ── HERO SECTION ─────────────────────────────────────────────── */
 .hero {
-	position: relative;
-	/* take full screen height */
-	min-height: 100vh;
-	display: flex;
-	align-items: center;
-	background: #0a0a15;
-	overflow: hidden;
-	padding: 0 5%;
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  /* background: #0a0a15; */
 }
 
-.hero-bg {
+.hero-bg video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 2;
+  transform: scale(1.15);
+}
+
+.hero-content {
+  position: absolute;   
+  top: 0;
+  left: 0;
+  z-index: 3;
+  padding: 20px;        
+  text-align: left;     
+  margin-top: 300px;
+  margin-left: 60px;
+
+}
+
+/* Shiny Glossy Name */
+.hero-name {
+  font-family: 'Instrument Serif', serif;
+
+  font-size: clamp(5rem, 9vw, 8rem);
+
+
+  /* font-size: 150px; */
+  font-weight: 200;
+
+
+  line-height: 1;
+
+
+  color: #ffffff;
+
+
+  text-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.6),
+    0 6px 20px rgba(0, 0, 0, 0.35);
+
+  letter-spacing: -0.04em;
+  margin-bottom: 1.5rem;
+
+  background: linear-gradient(90deg, #ffffff, #3b82f6, #93c5fd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: shine 4s linear infinite;
+}
+
+
+/* Typing Effect */
+.hero-fields {
+  font-size: clamp(1.4rem, 4vw, 2.2rem);
+  /* font-size: 30px; */
+  color: #cbd5e1;
+  min-height: 3.2rem;
+  font-weight: 500;
+  mix-blend-mode: difference;
+}
+
+.typing-text::after {
+  content: '|';
+  color: #f9fbff;
+  animation: blink 0.7s step-end infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+@keyframes shine {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* .hero-bg { */
 	/* absolute + inset 0 -> Makes it stretch to fill the entire .hero */
-	position: absolute;
+	/* position: absolute; */
 	/* shortcut for top, right, bottom, left all = 0 */
-	inset: 0;
+	/* inset: 0;
 	background: url('assets/img/about.jpg') center/cover no-repeat;
 	z-index: 1;
-}
+} */
 
 /* overlay for hero bg */
 /* .hero-bg::after {
@@ -127,7 +208,7 @@ body {
 	 z-index: 2;
 } */
 
-.glass-panel {
+/* .glass-panel {
 	position: relative;
 	border-radius: 20px;
 	z-index: 4;
@@ -142,42 +223,15 @@ body {
 	border-top-left-radius: 1.4rem;
 	border-bottom-left-radius: 1.4rem;
 	box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
-}
+} */
 
-.hero-right {
+/* .hero-right {
 	position: absolute;
 	inset: 0 0 0 46%;
 	z-index: 3;
-}
+} */
 
-.profile-img {
-	/* fill the .hero-right container completely */
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	object-position: center 30%;
-	display: block;
-}
 
-.greeting {
-	font-size: 1.6rem;
-	font-weight: 500;
-	color: #cbd5e1;
-	margin-bottom: 1.2rem;
-}
-
-.name {
-	/* responsive font size clamp(min, preferred, max) */
-	font-size: clamp(3.8rem, 9vw, 8.5rem);
-	font-weight: 800;
-	line-height: 0.92;
-	letter-spacing: -0.05em;
-	margin-bottom: 0.7rem;
-}
-
-.name span {
-	color: #3b82f6;
-}
 
 .role {
 	font-size: clamp(1.4rem, 2.5vw, 1.75rem);
@@ -731,7 +785,7 @@ section:not(.hero) {
 /* ── PHOTOGRAPHY SECTION ─────────────────────────────────────────────── */
 section.photography {
 	position: relative;
-	min-height: 195vh;
+	min-height: 187vh;
 	display: block;
 	align-items: stretch;
 	justify-content: initial;
@@ -757,15 +811,17 @@ section.photography {
 	position: relative;
 	z-index: 2;
 
-	width: clamp(320px, 92vw, 1890px);
+	width: clamp(256px, 92vw, 1890px);
 
 
-	margin: 0 auto 10px;
+
+
+	margin: 0 auto 8px;
 
 	background: #ebebee;
-	border-radius: 2.2rem;
-	padding: 2.4rem 2.2rem 2.8rem;
-	box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+	border-radius: 1.76rem;
+	padding: 1.92rem 1.76rem 2.24rem;
+	box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
 }
 
 /* .photography-container {
@@ -790,7 +846,7 @@ section.photography {
 
 .photography-title {
    font-family: 'Inter';
-	font-size: clamp(2.8rem, 8vw, 7rem);
+	font-size: clamp(2.24rem, 8vw, 5.6rem);
    /* letter-spacing: -5px; */
 	font-weight: 1500;
 	letter-spacing: -0.02em;
@@ -798,46 +854,47 @@ section.photography {
 	color: #111217;
 	text-align: left;
 	line-height: 0.92;
-	margin-bottom: 1.6rem;
+	margin-bottom: 1.28rem;
 }
 
 .photography-subtitle {
    letter-spacing: -1px;
 
-	font-size: clamp(1rem, 1.6vw, 1.35rem);
+	font-size: clamp(0.8rem, 1.6vw, 1.08rem);
 	color: #2b2d36;
-	margin-bottom: 1.8rem;
+	margin-bottom: 1.44rem;
 	max-width: 44ch;
 	font-weight: 600;
 }
 
 .photo-gallery-shell {
-	border-radius: 1.8rem;
+	border-radius: 1.44rem;
 	background: #f5f5f8;
-	padding: 1.1rem 1.3rem;
+	padding: 0.88rem 1.04rem;
 	overflow: hidden;
+
 }
 
 .photo-gallery {
 	display: flex;
-	gap: 1.2rem;
+	gap: 0.96rem;
 	will-change: transform;
 	transform: translate3d(0, 0, 0);
 }
 
 .photo-gallery::after {
 	content: "";
-	flex: 0 0 155px;
+	flex: 0 0 124px;
 	/* extra scroll space */
 }
 
 .photo-panel {
-	flex: 0 0 clamp(210px, 18vw, 280px);
-	height: clamp(380px, 68vh, 700px);
+	flex: 0 0 clamp(168px, 18vw, 224px);
+	height: clamp(304px, 68vh, 560px);
 	margin: 0;
-	border-radius: 1.5rem;
+	border-radius: 1.2rem;
 	overflow: hidden;
-	box-shadow: 0 12px 30px rgba(10, 10, 21, 0.22);
+	box-shadow: 0 9.6px 24px rgba(10, 10, 21, 0.22);
 	transition: flex-basis 0.45s ease, box-shadow 0.35s ease;
 }
 
@@ -851,8 +908,8 @@ section.photography {
 }
 
 .photo-panel:hover {
-	flex-basis: clamp(280px, 30vw, 480px);
-	box-shadow: 0 24px 45px rgba(10, 10, 21, 0.3);
+	flex-basis: clamp(224px, 30vw, 384px);
+	box-shadow: 0 19.2px 36px rgba(10, 10, 21, 0.3);
 }
 
 .photo-panel:hover .photo {
@@ -860,14 +917,14 @@ section.photography {
 }
 
 .photography-video-shell {
-	width: clamp(320px, 92vw, 1890px);
-	margin: 1.4rem auto 0;
-	padding: 1.2rem;
-	border-radius: 1.5rem;
+	width: clamp(256px, 92vw, 1890px);
+	margin: 1.12rem auto 0;
+	padding: 0.96rem;
+	border-radius: 1.2rem;
 	background: #ffffff;
-	box-shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
+	box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
 	opacity: 0;
-	transform: translateY(18px);
+	/* transform: translateY(14.4px); */
 	max-height: 0;
 	overflow: hidden;
 	pointer-events: none;
@@ -877,16 +934,16 @@ section.photography {
 .photography-video-shell.is-visible {
 	opacity: 1;
 	transform: translateY(0);
-	max-height: 1200px;
+	max-height: 960px;
 	pointer-events: auto;
-	margin-top: 1.4rem;
+	margin-top: 1.12rem;
 }
 
 .photography-video-link {
 	position: relative;
 	display: block;
 	width: 100%;
-	border-radius: 1rem;
+	border-radius: 0.8rem;
 	overflow: hidden;
 	text-decoration: none;
 	color: inherit;
@@ -910,8 +967,8 @@ section.photography {
 
 .video-caption {
 	position: absolute;
-	left: 1.5rem;
-	bottom: 1.5rem;
+	left: 1.2rem;
+	bottom: 1.2rem;
 	z-index: 2;
 	/* max-width: min(560px, 72%);
 	padding: 1rem 1.15rem;
@@ -973,17 +1030,17 @@ section.photography {
 	}
 
 	.photography-container {
-		border-radius: 1.7rem;
-		padding: 1.6rem 1.2rem 1.8rem;
+		border-radius: 1.36rem;
+		padding: 1.28rem 0.96rem 1.44rem;
 	}
 
 	.photo-panel {
-		flex-basis: clamp(170px, 29vw, 280px);
-		height: clamp(300px, 56vh, 520px);
+		flex-basis: clamp(136px, 29vw, 224px);
+		height: clamp(240px, 56vh, 416px);
 	}
 
 	.photo-panel:hover {
-		flex-basis: clamp(220px, 40vw, 360px);
+		flex-basis: clamp(176px, 40vw, 288px);
 	}
 }
 
@@ -993,26 +1050,26 @@ section.photography {
 	}
 
 	.photography-title {
-		font-size: clamp(2rem, 11vw, 3.4rem);
+		font-size: clamp(1.6rem, 11vw, 2.72rem);
 	}
 
 	.photography-subtitle {
-		margin-bottom: 1rem;
+		margin-bottom: 0.8rem;
 	}
 
 	.photo-gallery-shell {
-		padding: 0.8rem;
-		border-radius: 1.1rem;
+		padding: 0.64rem;
+		border-radius: 0.88rem;
 	}
 
 	.photo-panel {
-		flex-basis: clamp(150px, 41vw, 220px);
-		height: clamp(260px, 48vh, 420px);
-		border-radius: 1rem;
+		flex-basis: clamp(120px, 41vw, 176px);
+		height: clamp(208px, 48vh, 336px);
+		border-radius: 0.8rem;
 	}
 
 	.photo-panel:hover {
-		flex-basis: clamp(170px, 52vw, 300px);
+		flex-basis: clamp(136px, 52vw, 240px);
 	}
 }
 

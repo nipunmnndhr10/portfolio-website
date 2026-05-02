@@ -47,20 +47,25 @@ const photoTrack = document.getElementById('photoGalleryTrack');
 const videoShell = document.querySelector('.photography-video-shell');
 let photoOffset = 0;
 let photoMaxShift = 0;
+let videoHasAppeared = false;
 
 function updateVideoShellVisibility() {
-  if (!videoShell) {
-    return;
-  }
+  if (!videoShell) return;
 
-  const shouldShowVideo = photoMaxShift > 0 && photoOffset >= photoMaxShift - 1;
-  videoShell.classList.toggle('is-visible', shouldShowVideo);
+  const atEnd = photoMaxShift > 0 && photoOffset >= photoMaxShift - 1;
+  const atStart = photoOffset <= 1;
+
+  if (atEnd) {
+    videoShell.classList.add('is-visible');
+  } else if (atStart) {
+    videoShell.classList.remove('is-visible');
+  }
 }
 
 function recalcPhotoBounds() {
   if (!photographySection || !photoTrack) {
     return;
-  }
+  } 
 
   photoMaxShift = Math.max(photoTrack.scrollWidth - photoTrack.clientWidth, 0);
   photoOffset = Math.min(photoOffset, photoMaxShift);
@@ -86,6 +91,7 @@ function handlePhotoWheel(event) {
   const atStart = photoOffset <= 0;
   const atEnd = photoOffset >= photoMaxShift;
 
+
   const shouldLockToHorizontal = (movingForward && !atEnd) || (movingBackward && !atStart);
 
   if (shouldLockToHorizontal) {
@@ -102,3 +108,43 @@ if (photographySection && photoTrack) {
   window.addEventListener('wheel', handlePhotoWheel, { passive: false });
   updateVideoShellVisibility();
 }
+
+// Typing Effect
+const texts = [
+  "Visual Storytelling",
+  "Editing & Post-Production",
+  "Graphic Design",
+  "Web & Software Development",
+  "AI & Machine Learning"
+];
+
+let count = 0;
+let index = 0;
+let currentText = '';
+let letter = '';
+
+const typingElement = document.getElementById('typing');
+
+function type() {
+  if (count === texts.length) count = 0;
+
+  currentText = texts[count];
+  letter = currentText.slice(0, ++index);
+
+  typingElement.textContent = letter;
+
+  if (letter.length === currentText.length) {
+    setTimeout(() => {
+      count++;
+      index = 0;
+      setTimeout(type, 1500); // pause before next phrase
+    }, 2000);
+  } else {
+    setTimeout(type, 60); // typing speed
+  }
+}
+
+// Start typing effect
+window.onload = () => {
+  setTimeout(type, 800);
+};
