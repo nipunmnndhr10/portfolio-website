@@ -41,72 +41,57 @@ window.addEventListener('scroll', () => { // runs every time the user scrolls
   });
 });
 
-// Lock vertical scroll while moving horizontally through the photo track.
-const photographySection = document.getElementById('photography');
+// ── Auto-scrolling photo gallery (no scroll-lock) ──────────────────
 const photoTrack = document.getElementById('photoGalleryTrack');
 const videoShell = document.querySelector('.photography-video-shell');
-let photoOffset = 0;
-let photoMaxShift = 0;
-let videoHasAppeared = false;
 
-function updateVideoShellVisibility() {
-  if (!videoShell) return;
-
-  const atEnd = photoMaxShift > 0 && photoOffset >= photoMaxShift - 1;
-  const atStart = photoOffset <= 1;
-
-  if (atEnd) {
-    videoShell.classList.add('is-visible');
-  } else if (atStart) {
-    videoShell.classList.remove('is-visible');
-  }
+// Make the video shell always visible
+if (videoShell) {
+  videoShell.classList.add('is-visible');
 }
 
-function recalcPhotoBounds() {
-  if (!photographySection || !photoTrack) {
-    return;
-  } 
+if (photoTrack) {
+  // Duplicate all panels so the track can loop seamlessly
+  const originalPanels = Array.from(photoTrack.children);
+  originalPanels.forEach(panel => {
+    const clone = panel.cloneNode(true);
+    photoTrack.appendChild(clone);
+  });
 
-  photoMaxShift = Math.max(photoTrack.scrollWidth - photoTrack.clientWidth, 0);
-  photoOffset = Math.min(photoOffset, photoMaxShift);
-  photoTrack.style.transform = `translate3d(${-photoOffset}px, 0, 0)`;
-  updateVideoShellVisibility();
-}
-
-function handlePhotoWheel(event) {
-  if (!photographySection || !photoTrack) {
-    return;
+  // Width of the original (non-cloned) content
+  let singleSetWidth = 0;
+  function measureSet() {
+    singleSetWidth = 0;
+    const gap = parseFloat(getComputedStyle(photoTrack).gap) || 0;
+    originalPanels.forEach((p, i) => {
+      singleSetWidth += p.offsetWidth + (i < originalPanels.length - 1 ? gap : 0);
+    });
+    // add one gap for spacing between original last and cloned first
+    singleSetWidth += gap;
   }
+  measureSet();
+  window.addEventListener('resize', measureSet);
 
-  const sectionRect = photographySection.getBoundingClientRect();
-  const sectionPinned = sectionRect.top <= 0 && sectionRect.bottom >= window.innerHeight;
+  let offset = 0;
+  let paused = false;
+  const speed = 0.6; // px per frame
 
-  if (!sectionPinned || photoMaxShift <= 0) {
-    return;
+  function autoScroll() {
+    if (!paused) {
+      offset += speed;
+      // Reset seamlessly when the first set has fully scrolled away
+      if (offset >= singleSetWidth) {
+        offset -= singleSetWidth;
+      }
+      photoTrack.style.transform = `translate3d(${-offset}px, 0, 0)`;
+    }
+    requestAnimationFrame(autoScroll);
   }
+  requestAnimationFrame(autoScroll);
 
-  const delta = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY;
-  const movingForward = delta > 0;
-  const movingBackward = delta < 0;
-  const atStart = photoOffset <= 0;
-  const atEnd = photoOffset >= photoMaxShift;
-
-
-  const shouldLockToHorizontal = (movingForward && !atEnd) || (movingBackward && !atStart);
-
-  if (shouldLockToHorizontal) {
-    event.preventDefault();
-    photoOffset = Math.min(Math.max(photoOffset + delta * 1.1, 0), photoMaxShift);
-    photoTrack.style.transform = `translate3d(${-photoOffset}px, 0, 0)`;
-    updateVideoShellVisibility();
-  }
-}
-
-if (photographySection && photoTrack) {
-  recalcPhotoBounds();
-  window.addEventListener('resize', recalcPhotoBounds);
-  window.addEventListener('wheel', handlePhotoWheel, { passive: false });
-  updateVideoShellVisibility();
+  // Pause on hover over any photo panel (including clones)
+  photoTrack.addEventListener('mouseenter', () => { paused = true; });
+  photoTrack.addEventListener('mouseleave', () => { paused = false; });
 }
 
 // Typing Effect
