@@ -412,8 +412,7 @@ section:not(.hero) {
 .about-bg {
 	position: absolute;
 	inset: 0;
-	background: url('assets/img/about-bg.JPG') center/cover no-repeat;
-	/* optional subtle bg */
+	background: url('assets/img/about-bg.webp') center/cover no-repeat;
 	opacity: 0.50;
 	z-index: 1;
 	/* filter: blur(2px); */

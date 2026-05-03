@@ -98,7 +98,6 @@ if (photoTrack) {
 const texts = [
   "Visual Storytelling",
   "Editing & Post-Production",
-  "Graphic Design",
   "Web & Software Development",
   "AI & Machine Learning"
 ];
